@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="dark">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Hydration Quest · Knight's Vigil</title>
+    </head>
+    <body>
+        <div class="app">
+            <!-- Castle Background -->
+            <div class="castle-background">
+                <div class="battlements">
+                    <div class="merlon"></div>
+                    <div class="merlon"></div>
+                    <div class="merlon"></div>
+                    <div class="merlon"></div>
+                    <div class="merlon"></div>
+                </div>
+                <div class="torch torch-left">
+                    <div class="flame"></div>
+                </div>
+                <div class="torch torch-right">
+                    <div class="flame"></div>
+                </div>
+                <div class="stone-texture"></div>
+            </div>
+
+            <!-- Main Container -->
+            <div class="container">
+                <!-- Header -->
+                <div class="header">
+                    <div class="heraldic-crest">
+                        <svg viewBox="0 0 100 120" class="shield-emblem">
+                            <path d="M50 5 L90 20 L90 60 Q90 90 50 115 Q10 90 10 60 L10 20 Z" class="shield-path"/>
+                            <text x="50" y="65" class="shield-letter">H</text>
+                        </svg>
+                    </div>
+                    <h1 class="title">HYDRATION QUEST</h1>
+                    <p class="subtitle">⚔ A Knight's Sacred Vigil ⚔</p>
+                    <div class="sword-divider">
+                        <div class="sword-blade"></div>
+                        <div class="sword-hilt"></div>
+                    </div>
+                </div>
+
+                <!-- Stats Banner -->
+                <div class="stats-banner">
+                    <div class="banner-scroll">
+                        <div class="stat-item">
+                            <div class="stat-icon">⚔</div>
+                            <div class="stat-label">Today's Quests</div>
+                            <div class="stat-value" id="todayCount">0</div>
+                        </div>
+                        <div class="banner-divider">
+                            <div class="divider-gem"></div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🛡</div>
+                            <div class="stat-label">Total Victories</div>
+                            <div class="stat-value" id="totalCount">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quest Button -->
+                <div class="quest-container">
+                    <div class="shield-glow"></div>
+                    <button id="checkInBtn" class="quest-btn">
+                        <svg viewBox="0 0 200 240" class="shield-button">
+                            <defs>
+                                <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#f4e5b8;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#b8941e;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="metallic">
+                                    <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                                    <feOffset dx="0" dy="2" result="offsetblur"/>
+                                    <feComponentTransfer>
+                                        <feFuncA type="linear" slope="0.5"/>
+                                    </feComponentTransfer>
+                                    <feMerge>
+                                        <feMergeNode/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <path d="M100 10 L180 40 L180 120 Q180 180 100 230 Q20 180 20 120 L20 40 Z"
+                                  class="shield-main" fill="url(#shieldGrad)" filter="url(#metallic)"/>
+                            <path d="M100 25 L165 50 L165 120 Q165 170 100 210 Q35 170 35 120 L35 50 Z"
+                                  class="shield-inner"/>
+                            <circle cx="100" cy="100" r="35" class="shield-center"/>
+                        </svg>
+                        <div class="btn-content">
+                            <div class="quest-icon">💧</div>
+                            <div class="quest-text">DRINK</div>
+                            <div class="quest-subtext">Complete Quest</div>
+                        </div>
+                        <div class="divine-light"></div>
+                    </button>
+                </div>
+
+                <!-- Success Animation -->
+                <div id="waterAnimation" class="water-animation hidden">
+                    <div class="victory-banner">
+                        <div class="banner-top"></div>
+                        <div class="banner-content">
+                            <div class="victory-icon">⚔</div>
+                            <div class="victory-text">QUEST COMPLETE</div>
+                            <div class="victory-subtext">Honor & Glory</div>
+                        </div>
+                        <div class="banner-bottom"></div>
+                    </div>
+                    <div class="light-rays">
+                        <div class="ray ray-1"></div>
+                        <div class="ray ray-2"></div>
+                        <div class="ray ray-3"></div>
+                        <div class="ray ray-4"></div>
+                    </div>
+                </div>
+
+                <!-- Quest Log -->
+                <div class="records-section">
+                    <h2 class="section-title">
+                        <span class="title-decoration">⚜</span>
+                        <span class="title-text">QUEST LOG</span>
+                        <span class="title-decoration">⚜</span>
+                    </h2>
+                    <button id="clearBtn" class="clear-btn">
+                        <span>⚔</span> Clear Records
+                    </button>
+                    <div id="recordsList" class="records-scroll">
+                        <div class="empty-state">
+                            <div class="empty-shield">
+                                <svg viewBox="0 0 100 120">
+                                    <path d="M50 5 L90 20 L90 60 Q90 90 50 115 Q10 90 10 60 L10 20 Z" class="empty-shield-path"/>
+                                </svg>
+                            </div>
+                            <p class="empty-text">No Quests Completed</p>
+                            <p class="empty-hint">Begin your sacred vigil above</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
